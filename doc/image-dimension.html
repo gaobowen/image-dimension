@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 1000px;
+        background-color: lightgray;
+    }
+
+    div {
+        width: 100%;
+        height: 100%;
+        background-color: lightgray;
+    }
+</style>
+
+<!--event是作为全局对象的，所以直接使用event即可-->
+<div ondragover="ignoreDrag(event)" ondragenter="ignoreDrag(event)" ondrop="dropInHandle(event)">
+
+</div>
+<script src="./image-dimension.js" ></script>
+<script>
+    //import {ReadJPG} from '../image-dimension.js'
+    var ignoreDrag = (e) => {
+        //console.log('ignoreDrag = (e)')
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    var dropInHandle = (event) => {
+        ignoreDrag(event);
+        let files = event.dataTransfer.files;
+        let file = files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let baseSplit = reader.result.split(',');
+                // let mime = arr[0].match(/:(.*?);/)[1] || type;
+                // 去掉url的头，并转化为byte
+                let strArray = window.atob(baseSplit[1]);
+                // 处理异常,将ascii码小于0的转换为大于0
+                let buffer = new ArrayBuffer(strArray.length);
+                let bytes = new Uint8Array(buffer);
+                for (let i = 0; i < strArray.length; i++) {
+                    bytes[i] = strArray.charCodeAt(i);
+                }
+                //alert();
+                // var bytes = new Uint8Array();
+                // var length = bytes.byteLength;
+
+                console.log(JSON.stringify(ReadJPG(bytes)))
+                console.log(JSON.stringify(ReadPNG(bytes)))
+                console.log(JSON.stringify(ReadGIF(bytes)))
+                console.log(JSON.stringify(ReadBMP(bytes)))
+
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+</script>
+
+</html>

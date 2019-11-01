@@ -1,0 +1,31 @@
+{
+  "name": "image-dimension",
+  "version": "1.0.0",
+  "description": "pure js module get image size, image dimension",
+  "main": "image-dimension.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaobowen/web-code-snippets.git"
+  },
+  "keywords": [
+    "image",
+    "image size",
+    "png size",
+    "jpg size",
+    "gif size",
+    "bmp size",
+    "image dimension",
+    "png dimension",
+    "jpg dimension",
+    "gif dimension",
+    "bmp dimension",
+    "size",
+    "dimension"
+  ],
+  "author": "gaobowen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaobowen/web-code-snippets/issues"
+  },
+  "homepage": "https://github.com/gaobowen/web-code-snippets/blob/master/image/image-dimension/doc/image-dimension.md"
+}
