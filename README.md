@@ -1,4 +1,6 @@
-# image-dimension
+# image-dimensionjs
+## Description  
+pure js module get image size, image dimensions.
 
 ## Browser
 ```html

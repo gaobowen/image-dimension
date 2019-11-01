@@ -1,7 +1,7 @@
 {
-  "name": "image-dimension",
-  "version": "1.0.0",
-  "description": "pure js module get image size, image dimension",
+  "name": "image-dimensionjs",
+  "version": "1.0.1",
+  "description": "pure js module get image size, image dimensions",
   "main": "image-dimension.js",
   "repository": {
     "type": "git",
