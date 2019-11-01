@@ -5,7 +5,7 @@
   "main": "image-dimension.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaobowen/web-code-snippets.git"
+    "url": "git+https://github.com/gaobowen/image-dimension.git"
   },
   "keywords": [
     "image",
@@ -25,7 +25,7 @@
   "author": "gaobowen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaobowen/web-code-snippets/issues"
+    "url": "https://github.com/gaobowen/image-dimension/issues"
   },
-  "homepage": "https://github.com/gaobowen/web-code-snippets/blob/master/image/image-dimension/doc/image-dimension.md"
+  "homepage": "https://github.com/gaobowen/image-dimension#readme"
 }
