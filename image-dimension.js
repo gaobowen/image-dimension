@@ -49,7 +49,7 @@ function ReadPNG(bytes) {
 
 
 function ReadJPG(bytes) {
-    if (bytes.slice(0, 4).toString() === IMAGE_HEAD_SIGS.JPG.toString()) { 
+    if (bytes.slice(0, 4).toString() === IMAGE_HEAD_SIGS.JPG.toString()) {
         const M_SOF0 = 0xC0; /* Start Of Frame N */
         const M_SOF1 = 0xC1; /* N indicates which compression process */
         const M_SOF2 = 0xC2; /* Only SOF0-SOF2 are now in common use */
@@ -111,7 +111,7 @@ function ReadBMP(bytes) {
 }
 
 function base64ToBytes(base64) {
-    let baseSplit = reader.result.split(',');
+    let baseSplit = base64.split(',');
     // let mime = arr[0].match(/:(.*?);/)[1] || type;
     // 去掉url的头，并转化为byte
     let strArray = window.atob(baseSplit[1]);
@@ -140,10 +140,29 @@ function ReadBMPBase64(base64) {
     return ReadBMP(base64ToBytes(base64));
 }
 
+function ReadBase64Dimension(base64, extType) {
+    switch (extType) {
+        case 'png':
+            return ReadPNGBase64(base64);
+        case 'jpg':
+        case 'jpeg':
+            return ReadJPGBase64(base64);
+        case 'gif':
+            return ReadGIFBase64(base64);
+        case 'bmp':
+            return ReadBMPBase64(base64);
+        default:
+            return undefined;
+    }
+}
 
-export default { 
-    ReadPNG, ReadJPG, ReadGIF, ReadBMP, 
-    ReadPNGBase64, ReadJPGBase64, ReadGIFBase64, ReadBMPBase64 }
+
+
+export {
+    ReadPNG, ReadJPG, ReadGIF, ReadBMP,
+    ReadPNGBase64, ReadJPGBase64, ReadGIFBase64, ReadBMPBase64,
+    ReadBase64Dimension
+}
 
 
 
